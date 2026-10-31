@@ -1,0 +1,25 @@
+product:
+  name: KisanSaathi
+  hindi_name: किसान साथी
+  tagline: A clearer next step for your farm.
+  description: Weather, crop context and mandi prices, together in your language.
+  region: Malwa, Madhya Pradesh
+scenarios:
+  rain: Rain ahead
+  dry: Dry forecast
+  heatwave: Heatwave
+  api_failure: Weather unavailable
+  stale_mandi: Stale market data
+  no_mandi: No market data
+examples:
+  - label: Can I spray?
+    question: Soybean mein spray karun kya?
+  - label: Sell or wait?
+    question: Aaj bech dun ya ruk jaun?
+  - label: Weather outlook
+    question: What is the weather forecast?
+  - label: Water my crop?
+    question: Kya soybean mein sinchai karun?
+  - label: Crop stage
+    question: What stage is my soybean at?
+data_note: DEMO DATA — fictional profiles, simulated weather and sample market prices. Demo rules need KVK/ICAR verification.
