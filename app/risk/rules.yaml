@@ -1,0 +1,169 @@
+# Every threshold here is illustrative. These are NOT agronomic recommendations.
+notice: DEMO RULES - replace with locally verified KVK/ICAR guidance before field use.
+requirements:
+  spray: [weather.rain_next_48h_mm, weather.temperature_max_c]
+  irrigation: [weather.rain_next_48h_mm, weather.temperature_max_c]
+  harvest: [weather.rain_next_48h_mm, crop_stage.stage]
+  sowing: [weather.rain_next_48h_mm, weather.temperature_max_c]
+  sell: [mandi.comparable_price_gap_pct]
+rules:
+  - id: spray_rain_high
+    risk_type: spray
+    crop: any
+    conditions: [{field: weather.rain_next_48h_mm, op: gte, value: 20}]
+    level: HIGH
+    reason: Rain could wash off a spray application in this demonstration.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: spray_heat_high
+    risk_type: spray
+    crop: any
+    conditions: [{field: weather.temperature_max_c, op: gte, value: 40}]
+    level: HIGH
+    reason: High temperature warrants checking application conditions with a local adviser.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: spray_rain_medium
+    risk_type: spray
+    crop: any
+    conditions: [{field: weather.rain_next_48h_mm, op: gte, value: 5}]
+    level: MEDIUM
+    reason: Rain could affect spraying; recheck the forecast and local conditions.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: spray_low
+    risk_type: spray
+    crop: any
+    conditions: [{field: weather.rain_next_48h_mm, op: lt, value: 5}, {field: weather.temperature_max_c, op: lt, value: 40}]
+    level: LOW
+    reason: No rain or heat flag in this demo; wind, product label and field conditions still need checking.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: irrigation_rain_high
+    risk_type: irrigation
+    crop: any
+    conditions: [{field: weather.rain_next_48h_mm, op: gte, value: 20}]
+    level: HIGH
+    reason: Additional irrigation may be unnecessary when rain is expected; soil moisture is not measured.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: irrigation_rain_medium
+    risk_type: irrigation
+    crop: any
+    conditions: [{field: weather.rain_next_48h_mm, op: gte, value: 5}]
+    level: MEDIUM
+    reason: Check soil moisture and incoming rain before adding water.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: irrigation_heat_medium
+    risk_type: irrigation
+    crop: any
+    conditions: [{field: weather.temperature_max_c, op: gte, value: 38}]
+    level: MEDIUM
+    reason: Hot conditions require field moisture and crop-stress checks; no irrigation dose can be inferred.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: irrigation_low
+    risk_type: irrigation
+    crop: any
+    conditions: [{field: weather.rain_next_48h_mm, op: lt, value: 5}, {field: weather.temperature_max_c, op: lt, value: 38}]
+    level: LOW
+    reason: No weather flag in this demo; lack of rain does not establish irrigation need.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: harvest_immature_high
+    risk_type: harvest
+    crop: any
+    conditions: [{field: crop_stage.stage, op: ne, value: maturity}]
+    level: HIGH
+    reason: The estimated calendar does not indicate maturity; inspect the crop before harvesting.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: harvest_rain_high
+    risk_type: harvest
+    crop: any
+    conditions: [{field: weather.rain_next_48h_mm, op: gte, value: 20}]
+    level: HIGH
+    reason: Rain may affect harvest and drying conditions.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: harvest_rain_medium
+    risk_type: harvest
+    crop: any
+    conditions: [{field: weather.rain_next_48h_mm, op: gte, value: 5}]
+    level: MEDIUM
+    reason: Plan drying and storage around possible rain and check actual maturity.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: harvest_low
+    risk_type: harvest
+    crop: any
+    conditions: [{field: weather.rain_next_48h_mm, op: lt, value: 5}, {field: crop_stage.stage, op: eq, value: maturity}]
+    level: LOW
+    reason: No rain flag in this demo; confirm grain moisture and maturity in the field.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: sowing_rain_high
+    risk_type: sowing
+    crop: any
+    conditions: [{field: weather.rain_next_48h_mm, op: gte, value: 40}]
+    level: HIGH
+    reason: Heavy rain may affect field preparation and sowing conditions.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: sowing_heat_high
+    risk_type: sowing
+    crop: any
+    conditions: [{field: weather.temperature_max_c, op: gte, value: 40}]
+    level: HIGH
+    reason: Hot conditions need local assessment before sowing.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: sowing_rain_medium
+    risk_type: sowing
+    crop: any
+    conditions: [{field: weather.rain_next_48h_mm, op: gte, value: 20}]
+    level: MEDIUM
+    reason: Check drainage, soil moisture and the local sowing window.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: sowing_heat_medium
+    risk_type: sowing
+    crop: any
+    conditions: [{field: weather.temperature_max_c, op: gte, value: 35}]
+    level: MEDIUM
+    reason: Warm conditions warrant a field check before sowing.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: sowing_low
+    risk_type: sowing
+    crop: any
+    conditions: [{field: weather.rain_next_48h_mm, op: lt, value: 20}, {field: weather.temperature_max_c, op: lt, value: 35}]
+    level: LOW
+    reason: No weather flag in this demo; season, soil moisture and seed suitability remain unverified.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: sell_gap_high
+    risk_type: sell
+    crop: any
+    conditions: [{field: mandi.comparable_price_gap_pct, op: gte, value: 10}]
+    level: HIGH
+    reason: Comparable nearby quoted prices differ materially from the best local quote; verify costs and bids.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: sell_gap_medium
+    risk_type: sell
+    crop: any
+    conditions: [{field: mandi.comparable_price_gap_pct, op: gte, value: 5}]
+    level: MEDIUM
+    reason: Compare transport costs and actual buyer offers before choosing a market.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
+  - id: sell_gap_low
+    risk_type: sell
+    crop: any
+    conditions: [{field: mandi.comparable_price_gap_pct, op: lt, value: 5}]
+    level: LOW
+    reason: Comparable quotes are close in this demo; future prices and storage costs are unknown.
+    rule_source: DEMO RULE - needs KVK/ICAR verification
+    status: demo
