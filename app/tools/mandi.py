@@ -5,6 +5,7 @@ import asyncio
 import csv
 from datetime import datetime, timedelta, timezone
 from typing import Callable
+from zoneinfo import ZoneInfo
 
 import httpx
 import yaml
@@ -52,7 +53,7 @@ class MandiTool:
 
     def payload(self, rows: list[dict], profile: FarmerProfile, *, sample: bool,
                 warnings: list[str] | None = None) -> dict:
-        today = self.clock().date()
+        today = self.clock().astimezone(ZoneInfo("Asia/Kolkata")).date()
         max_days = self.settings.mandi_max_age_hours / 24
         stale = any(not 0 <= (today - datetime.fromisoformat(row["arrival_date"]).date()).days <= max_days
                     for row in rows)
@@ -60,7 +61,8 @@ class MandiTool:
                  "warnings": list(warnings or []), "unit": self.config["unit"],
                  "coverage": "Configured district and nearby districts; not a geospatial nearest-market search."}
         # Only compare same-day, same-variety, same-grade prices, using best local quote.
-        local = [row for row in rows if row["district"].casefold() == profile.district.casefold()]
+        local = [row for row in rows if row["district"].casefold() == profile.district.casefold()
+                 and row.get("variety") and row.get("grade")]
         if local:
             anchor = max(local, key=lambda row: (row["arrival_date"], row["modal_price"]))
             comparable = [row for row in rows if all(row.get(key) == anchor.get(key)

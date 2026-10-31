@@ -170,6 +170,14 @@ def test_stale_mandi_uses_arrival_date_even_when_fetch_is_recent(settings, profi
     assert tool.sample(profile, "soybean", scenario="no_mandi").error
 
 
+def test_missing_grade_cannot_support_market_comparison(settings, profile):
+    tool = MandiTool(settings, ToolCache(settings.cache_path), clock=lambda: NOW)
+    rows = tool.sample(profile, "soybean").value["prices"]
+    for row in rows:
+        row["grade"] = ""
+    assert "comparable_price_gap_pct" not in tool.payload(rows, profile, sample=False)
+
+
 @pytest.mark.asyncio
 async def test_demo_scenarios_are_explicit_and_network_independent(settings, profile):
     tools = RealTools(settings)
