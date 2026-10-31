@@ -149,7 +149,9 @@ async def fpo(request: Request, demo_scenario: Scenario | None = None,
                 reliable = sum(not evidence_gaps(tool, agent.settings)
                                for tool in plot["tool_results"].values())
             else:
-                stage, risks, issues, reliable = "Unknown", {}, item["data_gaps"], 0
+                stage = "Unknown"
+                risks = {kind: "UNKNOWN" for kind in ("spray", "irrigation", "harvest", "sowing", "sell")}
+                issues, reliable = item["data_gaps"], 0
             rows.append({"farmer_id": profile.farmer_id, "farmer": profile.name,
                          "village": profile.village, "crop": plot["crop"] if plot else "Not saved",
                          "stage": stage, "risks": risks, "reliable_sources": reliable,

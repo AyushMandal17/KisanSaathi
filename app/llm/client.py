@@ -21,10 +21,12 @@ class LLMUnavailable(RuntimeError):
 
 class LLM(Protocol):
     @property
-    def last_provider(self) -> str: ...
+    def last_provider(self) -> str:
+        """Provider that produced the most recent response in this context."""
 
     async def complete(self, messages: list[dict[str, str]],
-                       schema: type[ModelT] | None = None) -> ModelT | str: ...
+                       schema: type[ModelT] | None = None) -> ModelT | str:
+        """Return text or a validated instance of the requested shared contract."""
 
 
 class LLMClient:

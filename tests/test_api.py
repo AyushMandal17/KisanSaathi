@@ -65,6 +65,7 @@ async def test_dashboard_alerts_and_fpo(client):
     assert len(rows) == 4
     empty = next(row for row in rows if row["farmer_id"] == "F003")
     assert empty["reliable_sources"] == 0
+    assert set(empty["risks"].values()) == {"UNKNOWN"}
     assert "sowing date" in empty["data_gaps"][0]
 
 
