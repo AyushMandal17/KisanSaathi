@@ -13,9 +13,14 @@ from app.tools.weather import WeatherTool
 
 
 class Tools(Protocol):
-    async def weather(self, profile: FarmerProfile) -> ToolResult: ...
-    async def mandi(self, profile: FarmerProfile, crop: str) -> ToolResult: ...
-    async def crop_stage(self, profile: FarmerProfile, crop: str) -> ToolResult: ...
+    async def weather(self, profile: FarmerProfile) -> ToolResult:
+        """Fetch a forecast using saved coordinates."""
+
+    async def mandi(self, profile: FarmerProfile, crop: str) -> ToolResult:
+        """Fetch matching market quotes with provenance."""
+
+    async def crop_stage(self, profile: FarmerProfile, crop: str) -> ToolResult:
+        """Estimate a crop stage from the saved sowing date."""
 
 
 class RealTools:

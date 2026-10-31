@@ -10,6 +10,7 @@ import yaml
 
 from app.schemas import RiskResult, RiskType, ToolResult
 from app.tools.cache import utcnow
+from app.tools.quality import evidence_gaps
 
 
 class RiskEngine:
@@ -28,31 +29,10 @@ class RiskEngine:
             problems.append("Crop is unknown.")
         for name in {field.split(".")[0] for field in required}:
             result = results.get(name)
-            if result is None or result.error or result.confidence in {"low", "unknown"}:
-                problems.append(f"{name}: missing, failed or low-confidence evidence.")
-                continue
-            if result.fetched_at.utcoffset() is None:
-                problems.append(f"{name}: source time has no timezone.")
-                continue
-            age = (self.clock() - result.fetched_at).total_seconds() / 3600
-            limit = self.settings.mandi_max_age_hours if name == "mandi" else self.settings.weather_max_age_hours
-            if age < -1 / 60 or age > limit or result.value.get("stale"):
-                problems.append(f"{name}: evidence is stale or future-dated.")
-            if name == "mandi":
-                if result.value.get("sample"):
-                    problems.append("mandi: sample prices cannot support a sale decision.")
-                prices = result.value.get("prices", [])
-                if not prices:
-                    problems.append("mandi: no prices available.")
-                for price in prices:
-                    try:
-                        days = (self.clock().date() - datetime.fromisoformat(price["arrival_date"]).date()).days
-                        if not 0 <= days <= self.settings.mandi_max_age_hours / 24:
-                            problems.append("mandi: arrival date is stale or future-dated.")
-                            break
-                    except (ValueError, KeyError, TypeError):
-                        problems.append("mandi: missing arrival date.")
-                        break
+            if result is None:
+                problems.append(f"{name}: required evidence is missing.")
+            else:
+                problems.extend(evidence_gaps(result, self.settings, self.clock()))
         for field in required:
             tool, key = field.split(".", 1)
             result = results.get(tool)

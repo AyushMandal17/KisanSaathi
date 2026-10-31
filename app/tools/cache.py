@@ -18,15 +18,22 @@ def utcnow() -> datetime:
 class ToolCache:
     def __init__(self, path: str | Path):
         self.path = Path(path)
-        self.path.parent.mkdir(parents=True, exist_ok=True)
-        with sqlite3.connect(self.path, timeout=5) as connection:
-            connection.execute(
-                "CREATE TABLE IF NOT EXISTS tool_cache "
-                "(cache_key TEXT PRIMARY KEY, result TEXT NOT NULL)"
-            )
+        self.available = False
+        try:
+            self.path.parent.mkdir(parents=True, exist_ok=True)
+            with sqlite3.connect(self.path, timeout=5) as connection:
+                connection.execute(
+                    "CREATE TABLE IF NOT EXISTS tool_cache "
+                    "(cache_key TEXT PRIMARY KEY, result TEXT NOT NULL)"
+                )
+            self.available = True
+        except (OSError, sqlite3.Error):
+            log.warning("Persistent cache unavailable; continuing without caching")
 
     def get(self, key: str, max_age_seconds: float | None = None,
             now: datetime | None = None) -> ToolResult | None:
+        if not self.available:
+            return None
         try:
             with sqlite3.connect(self.path, timeout=5) as connection:
                 row = connection.execute(
@@ -46,7 +53,7 @@ class ToolCache:
             return None
 
     def put(self, key: str, result: ToolResult) -> None:
-        if result.error or result.confidence not in {"high", "medium"}:
+        if not self.available or result.error or result.confidence not in {"high", "medium"}:
             return
         try:
             with sqlite3.connect(self.path, timeout=5) as connection:

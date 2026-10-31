@@ -75,6 +75,13 @@ def test_cache_keeps_source_timestamp_and_survives_restart(tmp_path):
     assert ToolCache(path).get("weather:test", now=NOW).value["rain_next_48h_mm"] == 2
 
 
+def test_corrupt_cache_is_ignored_without_deleting_it(tmp_path):
+    path = tmp_path / "broken.sqlite3"
+    path.write_text("not a database", encoding="utf-8")
+    assert ToolCache(path).get("weather:test", now=NOW) is None
+    assert path.read_text(encoding="utf-8") == "not a database"
+
+
 @pytest.mark.asyncio
 async def test_weather_retry_and_expired_cache_fallback(settings, profile):
     calls = []
