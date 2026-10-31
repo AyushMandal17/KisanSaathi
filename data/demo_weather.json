@@ -1,0 +1,44 @@
+{
+  "notice": "SYNTHETIC DEMO DATA. Values are invented test fixtures, not observed weather or a forecast. Dates are replayed relative to the demo run.",
+  "scenarios": {
+    "rain": {
+      "rain_next_24h_mm": 12.0,
+      "rain_next_48h_mm": 28.0,
+      "rain_next_72h_mm": 33.0,
+      "rain_probability_pct": 70,
+      "temperature_max_c": 30.0,
+      "temperature_min_c": 22.0,
+      "daily": [
+        {"rain_mm": 12.0, "temp_max_c": 29.0, "temp_min_c": 22.0},
+        {"rain_mm": 16.0, "temp_max_c": 30.0, "temp_min_c": 23.0},
+        {"rain_mm": 5.0, "temp_max_c": 28.0, "temp_min_c": 21.0}
+      ]
+    },
+    "dry": {
+      "rain_next_24h_mm": 0.0,
+      "rain_next_48h_mm": 0.0,
+      "rain_next_72h_mm": 0.0,
+      "rain_probability_pct": 5,
+      "temperature_max_c": 31.0,
+      "temperature_min_c": 20.0,
+      "daily": [
+        {"rain_mm": 0.0, "temp_max_c": 30.0, "temp_min_c": 20.0},
+        {"rain_mm": 0.0, "temp_max_c": 31.0, "temp_min_c": 21.0},
+        {"rain_mm": 0.0, "temp_max_c": 30.0, "temp_min_c": 20.0}
+      ]
+    },
+    "heatwave": {
+      "rain_next_24h_mm": 0.0,
+      "rain_next_48h_mm": 0.0,
+      "rain_next_72h_mm": 0.0,
+      "rain_probability_pct": 0,
+      "temperature_max_c": 43.0,
+      "temperature_min_c": 30.0,
+      "daily": [
+        {"rain_mm": 0.0, "temp_max_c": 42.0, "temp_min_c": 30.0},
+        {"rain_mm": 0.0, "temp_max_c": 43.0, "temp_min_c": 31.0},
+        {"rain_mm": 0.0, "temp_max_c": 41.0, "temp_min_c": 30.0}
+      ]
+    }
+  }
+}

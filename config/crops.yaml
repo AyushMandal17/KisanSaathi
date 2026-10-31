@@ -1,0 +1,41 @@
+notice: DEMO CALENDARS - illustrative stage boundaries; require local KVK/ICAR verification before field use.
+crops:
+  soybean:
+    display_name: Soybean
+    hi: सोयाबीन
+    aliases: [soybean, soyabean, soyabeen, soya, सोयाबीन, सोयाबिन]
+    mandi_commodity: Soyabean
+    status: demo
+    source: DEMO crop calendar - estimated, needs KVK/ICAR verification
+    stages:
+      - {name: establishment, hi: शुरुआती बढ़वार, min_days: 0, max_days: 14}
+      - {name: vegetative, hi: पत्तियों की बढ़वार, min_days: 15, max_days: 45}
+      - {name: flowering, hi: फूल आना, min_days: 46, max_days: 65}
+      - {name: pod_filling, hi: फलियों में दाना भरना, min_days: 66, max_days: 95}
+      - {name: maturity, hi: पकने की अनुमानित अवस्था, min_days: 96, max_days: 130}
+  wheat:
+    display_name: Wheat
+    hi: गेहूँ
+    aliases: [wheat, gehu, gehun, गेहूं, गेहूँ]
+    mandi_commodity: Wheat
+    status: demo
+    source: DEMO crop calendar - estimated, needs KVK/ICAR verification
+    stages:
+      - {name: establishment, hi: शुरुआती बढ़वार, min_days: 0, max_days: 20}
+      - {name: vegetative, hi: पत्तियों की बढ़वार, min_days: 21, max_days: 65}
+      - {name: flowering, hi: फूल आना, min_days: 66, max_days: 90}
+      - {name: grain_filling, hi: दाना भरना, min_days: 91, max_days: 115}
+      - {name: maturity, hi: पकने की अनुमानित अवस्था, min_days: 116, max_days: 150}
+  gram:
+    display_name: Gram
+    hi: चना
+    aliases: [gram, chickpea, chana, चना]
+    mandi_commodity: Gram
+    status: demo
+    source: DEMO crop calendar - estimated, needs KVK/ICAR verification
+    stages:
+      - {name: establishment, hi: शुरुआती बढ़वार, min_days: 0, max_days: 20}
+      - {name: vegetative, hi: पत्तियों की बढ़वार, min_days: 21, max_days: 50}
+      - {name: flowering, hi: फूल आना, min_days: 51, max_days: 75}
+      - {name: pod_filling, hi: फलियों में दाना भरना, min_days: 76, max_days: 105}
+      - {name: maturity, hi: पकने की अनुमानित अवस्था, min_days: 106, max_days: 140}

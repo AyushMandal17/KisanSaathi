@@ -1,0 +1,8 @@
+state,district,market,commodity,variety,grade,arrival_date,min_price,max_price,modal_price,unit,fetched_at,data_label
+Madhya Pradesh,Dhar,Dhar demo mandi,Soyabean,Yellow,FAQ,2026-10-30,3900,4400,4200,INR/quintal,2026-10-31T06:00:00Z,SYNTHETIC SAMPLE - NOT A MARKET QUOTE
+Madhya Pradesh,Indore,Indore demo mandi,Soyabean,Yellow,FAQ,2026-10-30,4050,4550,4380,INR/quintal,2026-10-31T06:00:00Z,SYNTHETIC SAMPLE - NOT A MARKET QUOTE
+Madhya Pradesh,Ujjain,Ujjain demo mandi,Soyabean,Yellow,FAQ,2026-10-30,3980,4480,4300,INR/quintal,2026-10-31T06:00:00Z,SYNTHETIC SAMPLE - NOT A MARKET QUOTE
+Madhya Pradesh,Dhar,Dhar demo mandi,Wheat,Other,FAQ,2026-10-30,2450,2700,2580,INR/quintal,2026-10-31T06:00:00Z,SYNTHETIC SAMPLE - NOT A MARKET QUOTE
+Madhya Pradesh,Indore,Indore demo mandi,Wheat,Other,FAQ,2026-10-30,2500,2750,2630,INR/quintal,2026-10-31T06:00:00Z,SYNTHETIC SAMPLE - NOT A MARKET QUOTE
+Madhya Pradesh,Dhar,Dhar demo mandi,Gram,Other,FAQ,2026-10-30,5200,5700,5480,INR/quintal,2026-10-31T06:00:00Z,SYNTHETIC SAMPLE - NOT A MARKET QUOTE
+Madhya Pradesh,Indore,Indore demo mandi,Gram,Other,FAQ,2026-10-30,5300,5800,5580,INR/quintal,2026-10-31T06:00:00Z,SYNTHETIC SAMPLE - NOT A MARKET QUOTE

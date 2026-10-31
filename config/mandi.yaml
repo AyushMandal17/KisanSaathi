@@ -1,0 +1,34 @@
+notice: API mappings are configurable. Verify them in the selected data.gov.in resource API console before enabling live prices. Resource ID is intentionally unset in the environment template.
+documentation: https://www.data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi
+api:
+  key_parameter: api-key
+  format_parameter: format
+  format_value: json
+  state_filter: filters[state]
+  district_filter: filters[district]
+  commodity_filter: filters[commodity]
+  limit_parameter: limit
+  offset_parameter: offset
+  page_size: 200
+  max_pages: 2
+  records_field: records
+  total_field: total
+fields:
+  state: state
+  district: district
+  market: market
+  commodity: commodity
+  variety: variety
+  grade: grade
+  arrival_date: arrival_date
+  min_price: min_price
+  max_price: max_price
+  modal_price: modal_price
+date_formats: ["%d/%m/%Y", "%Y-%m-%d", "%d-%m-%Y"]
+unit: INR/quintal
+nearby_districts:
+  Madhya Pradesh:
+    Dhar: [Indore, Ujjain]
+    Indore: [Dhar, Ujjain]
+    Ujjain: [Indore, Dewas]
+    Dewas: [Indore, Ujjain]
