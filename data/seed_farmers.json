@@ -1,0 +1,8 @@
+{
+  "label": "DEMO DATA — fictional farmers; not real personal information",
+  "farmers": [
+    {"farmer_id":"F001","name":"Ramesh (DEMO)","village":"Pithampur","district":"Dhar","state":"Madhya Pradesh","lat":22.6,"lon":75.7,"language":"hi","crops":[{"crop":"soybean","sowing_date":"2026-07-05","area_acres":2.5}]},
+    {"farmer_id":"F002","name":"Meera (DEMO)","village":"Sanwer","district":"Indore","state":"Madhya Pradesh","lat":23.0,"lon":75.8,"language":"en","crops":[{"crop":"soybean","sowing_date":"2026-07-10","area_acres":3.0},{"crop":"wheat","sowing_date":"2026-10-25","area_acres":1.0}]},
+    {"farmer_id":"F003","name":"Dev (DEMO)","village":"Badnagar","district":"Ujjain","state":"Madhya Pradesh","lat":23.05,"lon":75.38,"language":"hi","crops":[]}
+  ]
+}
