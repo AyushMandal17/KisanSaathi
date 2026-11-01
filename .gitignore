@@ -1,4 +1,7 @@
 .env
+node_modules/
+dist/
+.vercel/
 .env.*
 !.env.example
 .venv/
@@ -8,3 +11,5 @@ __pycache__/
 runtime/
 *.log
 .streamlit/secrets.toml
+
+.vercel

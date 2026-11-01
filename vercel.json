@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "dashboard": { "root": "web", "framework": "vite", "buildCommand": "npm run build", "outputDirectory": "dist" },
+    "advisor": { "root": ".", "framework": "fastapi", "entrypoint": "deploy:app" }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": { "service": "advisor" } },
+    { "source": "/(.*)", "destination": { "service": "dashboard" } }
+  ]
+}

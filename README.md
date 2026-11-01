@@ -1,6 +1,8 @@
 # KisanSaathi · किसान साथी
 
-A runnable, text-first hackathon prototype for multilingual crop and resource advice in Malwa, Madhya Pradesh. Ask in Hindi, Hinglish or English; receive a short grounded answer, deterministic risk, sources and data gaps. Built with FastAPI, Pydantic v2, HTTPX, SQLAlchemy/SQLite, Streamlit and Plotly. No React, authentication, cloud database or deployment is required.
+A runnable, text-first hackathon prototype for multilingual crop and resource advice in Malwa, Madhya Pradesh. Ask in Hindi, Hinglish or English; receive a short grounded answer, deterministic risk, sources and data gaps. Built with FastAPI, Pydantic v2, HTTPX, SQLAlchemy/SQLite, a React dashboard, and an alternative Streamlit UI.
+
+**Hosted React demo:** https://kisan-saathi-gamma-wine.vercel.app. The supplied farmer/staff dashboard is connected to the API and deployed on Vercel. See [React setup and deployment](docs/vercel.md) for local preview and hosting. The hosted demo uses fictional read-only profiles; it is not authenticated production software.
 
 **Default mode is entirely offline:** fictional farmers, simulated weather, sample prices and a clearly identified mock language model. This is a demonstration, not validated field guidance. Every agronomic rule and calendar is labeled DEMO. Soil moisture is not measured.
 

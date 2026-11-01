@@ -1,0 +1,26 @@
+.connected-banner { flex-wrap: wrap; margin-bottom: 24px; gap: 16px; }
+.role-switch {display:flex;justify-content:flex-end;margin-bottom:12px}
+.connected-banner small,.source-note { font-size: 12px; color: #5d6c63; }
+.context-controls {display:flex;gap:12px;align-items:end;flex-wrap:wrap}
+.context-controls label {display:flex;flex-direction:column;gap:5px;font-size:12px;font-weight:600}
+.context-controls select,.connected-input {padding:10px;border:1px solid #cddbd0;border-radius:8px;background:white;color:#193d2b;max-width:100%}
+.connected-panel {margin-bottom:20px;padding:24px;min-width:0}
+.connected-panel .panel-header {padding:0 0 16px}
+.connected-panel h3 {font-weight:650;margin-bottom:8px}
+.metric-grid,.profile-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:20px 0}
+.metric-grid article {padding:15px;border-radius:12px;background:#f5f8f4;display:flex;flex-direction:column;gap:8px}
+.metric-grid article span {font-size:12px;color:#657669}
+.metric-grid article strong {font-size:20px;overflow-wrap:anywhere}
+.table-scroll {overflow:auto;max-width:100%}
+.table-scroll table {width:100%;border-collapse:collapse;text-align:left;font-size:13px}
+.table-scroll th,.table-scroll td {padding:14px 12px;border-bottom:1px solid #e8eee7;vertical-align:top;min-width:100px}
+.table-scroll th {color:#69786b;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.risk-cell {display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:5px}
+.risk-badge {display:inline-block;font-size:10px;font-weight:750;padding:4px 8px;border-radius:6px;background:#eef0ef;color:#4b5f56;white-space:nowrap}
+.risk-badge.high,.risk-badge.stale {background:#fce6e4;color:#a53432}.risk-badge.medium,.risk-badge.demo,.risk-badge.sample {background:#fff0d4;color:#95620e}.risk-badge.low {background:#e2f4e7;color:#266b3b}
+.risk-list {display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
+.risk-list>div {border:1px solid #e2e9e1;border-radius:10px;padding:14px}.risk-list strong{margin-right:12px;text-transform:capitalize}.risk-list p{font-size:13px;margin:10px 0}.risk-list small{font-size:11px;color:#657669}
+.source-note p {margin:6px 0}.api-error{padding:18px;background:#fff0ee;border:1px solid #efc1bb;border-radius:10px;color:#922f25;margin:12px 0}
+.answer-card{border:1px solid #dce6dc;background:#fbfdf9;border-radius:12px;padding:20px;margin:14px 0;overflow-wrap:anywhere}.answer-status{display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:12px;color:#5d6c63}.answer-text{font-size:17px;line-height:1.8;margin:16px 0;white-space:pre-wrap}.answer-card p{margin-bottom:12px}.answer-card details,.connected-panel details{font-size:12px;margin-top:12px}.answer-card summary,.connected-panel summary{cursor:pointer;font-weight:600}.answer-card ul,.connected-panel ul{list-style:disc;padding-left:20px}.question-text{margin-top:24px!important;font-size:17px}
+.farmer-chat-card textarea{width:100%;border:1px solid #cddbd0;border-radius:10px;padding:16px;resize:vertical;background:white}.connected-input{display:block;margin:10px 0;width:100%}
+@media(max-width:700px){.connected-panel{padding:16px}.context-controls{width:100%}.context-controls label{flex:1}.metric-grid{grid-template-columns:1fr 1fr}.metric-grid article strong{font-size:17px}.connected-banner{align-items:flex-start}.answer-card{padding:14px}}
