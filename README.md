@@ -5,10 +5,6 @@ Ask in any Local Language. Get a short grounded answer, a deterministic risk lev
 
 [**Live demo →**](https://kisan-saathi-gamma-wine.vercel.app) · [API docs (local)](http://127.0.0.1:8000/docs) · [Five-minute demo script](#demo-walkthrough)
 
-> [!WARNING]
-> **This is a hackathon prototype, not validated field guidance.**
-> Every agronomic rule and crop calendar is labeled `DEMO`. Soil moisture is not measured. Farmers, weather and prices in the default mode are fictional or simulated. The hosted demo uses read-only fictional profiles and is not authenticated production software. Do not expose the API publicly.
-
 ---
 
 ## Contents
