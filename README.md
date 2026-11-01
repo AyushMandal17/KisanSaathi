@@ -1,7 +1,7 @@
 # KisanSaathi · किसान साथी
 
-**Multilingual crop and resource advice for farmers in Malwa, Madhya Pradesh.**
-Ask in Hindi, Hinglish or English. Get a short grounded answer, a deterministic risk level, its sources, and an honest list of what the system doesn't know.
+**Multilingual crop and resource advice for farmers.**
+Ask in any Local Language. Get a short grounded answer, a deterministic risk level, its sources, and an honest list of what the system doesn't know.
 
 [**Live demo →**](https://kisan-saathi-gamma-wine.vercel.app) · [API docs (local)](http://127.0.0.1:8000/docs) · [Five-minute demo script](#demo-walkthrough)
 
