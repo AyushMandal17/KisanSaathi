@@ -4,6 +4,12 @@ A runnable, text-first hackathon prototype for multilingual crop and resource ad
 
 **Default mode is entirely offline:** fictional farmers, simulated weather, sample prices and a clearly identified mock language model. This is a demonstration, not validated field guidance. Every agronomic rule and calendar is labeled DEMO. Soil moisture is not measured.
 
+## Team collaboration
+
+Clone `https://github.com/AyushMandal17/KisanSaathi.git`, then follow the clean-copy setup below. The backend lives in `app/`; the Streamlit frontend lives in `ui/`. The root `backend` and `frontend` files are empty placeholders from the initial repository.
+
+Each teammate keeps their own `.env`; never commit API keys or runtime databases. The default demo runs without keys. Use a separate branch for each change and open a pull request into `main`. GitHub shows committed and pushed progress; it does not sync unsaved edits or host the running app.
+
 ## Quick start from a clean copy
 
 Use Python **3.11 or 3.12**. Run commands from the folder containing this README. Keep the API and UI terminals open. The UI is at http://127.0.0.1:8501 and API documentation at http://127.0.0.1:8000/docs.
